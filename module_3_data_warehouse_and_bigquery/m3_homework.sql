@@ -22,7 +22,12 @@ SELECT distinct (pu_location_id)
 FROM `nyc_taxi.green_taxi`
 WHERE DATE(TIMESTAMP_MICROS(lpep_pickup_datetime)) between '2022-06-01' and '2022-06-30'
 
+CREATE OR REPLACE TABLE `theta-byte-412315.nyc_taxi.green_taxi_partition`
+PARTITION BY lpep_pickup_date AS
+SELECT *, date(timestamp_micros (lpep_pickup_datetime)) AS lpep_pickup_date
+FROM `theta-byte-412315.nyc_taxi.green_taxi`;
+
 SELECT distinct (pu_location_id)
 FROM `nyc_taxi.green_taxi_partition`
-WHERE DATE(TIMESTAMP_MICROS(lpep_pickup_datetime)) between '2022-06-01' and '2022-06-30'
+WHERE lpep_pickup_date between '2022-06-01' and '2022-06-30'
 
