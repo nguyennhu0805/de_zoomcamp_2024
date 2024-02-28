@@ -1,0 +1,10 @@
+version : 2
+
+sources:
+  - name: staging
+    database: theta-byte-412315
+    schema: nyc_taxi
+
+    tables:
+      - name: green_taxi
+      - name: yellow_taxi
