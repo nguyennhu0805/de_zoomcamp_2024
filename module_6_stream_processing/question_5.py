@@ -18,7 +18,7 @@ producer.bootstrap_connected()
 
 t0 = time.time()
 
-topic_name = 'test-topic'
+topic_name = 'green_trips'
 
 file_path = 'green_tripdata_2019-10.csv.gz'
 selected_columns = [
